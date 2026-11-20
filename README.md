@@ -8,7 +8,7 @@
 | Name | Registration no. | GitHub username |
 |------|------------------|-----------------|
 | Trevor Kaimuri | COM/3431/26 | trevormunene04-art |
-| Collins Kipkoech | COM/3473/26 | ckipkoech665-prog |
+Mohammed Abdillahi| COM/8229/26 | samaboy12 |
 
 ## Who drove each part
 

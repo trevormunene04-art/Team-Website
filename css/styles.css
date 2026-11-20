@@ -1,403 +1,414 @@
-/* =====================================================
-   Team website stylesheet (CSC 216, Lab 2)
-   One file styles every page on the site.
-   ===================================================== */
 
-/* ---------- 1. Design tokens ---------- */
 :root {
-  --color-bg: #f6f7f4;
-  --color-surface: #ffffff;
-  --color-text: #1c2430;
-  --color-muted: #5a6474;
-  --color-primary: #0f6e6e;
-  --color-primary-dark: #0a5050;
-  --color-on-primary: #ffffff;
-  --color-border: #dde1e6;
-  --color-error: #b3261e;
-  --color-success: #1e7b3a;
-
-  --font-body: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  --font-heading: Georgia, "Times New Roman", serif;
-
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2.5rem;
-  --space-5: 4rem;
-
-  --radius: 10px;
-  --max-width: 1080px;
+  --primary: #142b49;
+  --secondary: #159e91;
+  --accent: #42d6c4;
+  --background: #f2f6fa;
+  --surface: #ffffff;
+  --text: #243247;
+  --muted: #68778a;
+  --border: #dce5ed;
+  --shadow: 0 10px 30px rgba(20, 43, 73, 0.09);
 }
 
 body.dark {
-  --color-bg: #11161d;
-  --color-surface: #1a212b;
-  --color-text: #e7ebf0;
-  --color-muted: #a2abb9;
-  --color-primary: #4fc1c1;
-  --color-primary-dark: #83d8d8;
-  --color-on-primary: #0b1f1f;
-  --color-border: #2b3340;
-  --color-error: #ff8a80;
-  --color-success: #7ddc97;
-  color-scheme: dark;
+  --background: #101b2b;
+  --surface: #19283b;
+  --text: #edf5ff;
+  --muted: #a7b5c6;
+  --border: #304258;
+  --primary: #0c1727;
 }
 
-/* ---------- 2. Base and reset ---------- */
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: var(--font-body);
-  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
   line-height: 1.6;
-  color: var(--color-text);
-  background-color: var(--color-bg);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  transition: background 0.3s, color 0.3s;
 }
 
-h1,
-h2,
-h3 {
-  font-family: var(--font-heading);
-  line-height: 1.2;
-  margin: 0 0 var(--space-2);
-}
-
-p {
-  margin: 0 0 var(--space-2);
-}
-
-a {
-  color: var(--color-primary);
-}
-
-a:hover {
-  color: var(--color-primary-dark);
-}
-
-img {
-  max-width: 100%;
-  display: block;
-}
-
-:focus-visible {
-  outline: 3px solid var(--color-primary);
-  outline-offset: 3px;
-}
-
-/* ---------- 3. Layout helpers ---------- */
 .container {
-  width: 100%;
-  max-width: var(--max-width);
-  margin-inline: auto;
-  padding-inline: var(--space-2);
-}
-
-.section {
-  padding-block: var(--space-4);
+  width: min(1100px, 90%);
+  margin: auto;
 }
 
 .skip-link {
   position: absolute;
-  top: -4rem;
-  left: var(--space-2);
-  z-index: 100;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius);
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
+  left: -9999px;
 }
 
 .skip-link:focus {
-  top: var(--space-2);
+  left: 10px;
+  top: 10px;
+  z-index: 1000;
+  background: white;
+  padding: 10px;
 }
 
-/* ---------- 4. Header and navigation ---------- */
 .site-header {
+  background: var(--surface);
+  box-shadow: var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 10;
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
 }
 
 .header-inner {
+  min-height: 75px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
   align-items: center;
-  gap: var(--space-2);
-  padding-block: var(--space-2);
+  gap: 20px;
 }
 
 .logo {
-  margin-right: auto;
-  font-family: var(--font-heading);
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--color-text);
+  font-size: 25px;
+  font-weight: bold;
   text-decoration: none;
+  color: var(--primary);
+}
+
+.logo span,
+.site-footer span {
+  color: var(--secondary);
 }
 
 .site-nav ul {
   display: flex;
-  gap: var(--space-1);
-  margin: 0;
-  padding: 0;
   list-style: none;
+  gap: 30px;
 }
 
 .site-nav a {
-  display: block;
-  padding: var(--space-1) var(--space-2);
-  border-radius: var(--radius);
-  color: var(--color-text);
-  font-weight: 500;
+  color: var(--text);
   text-decoration: none;
+  transition: color 0.3s;
 }
 
-.site-nav a:hover {
-  background-color: var(--color-bg);
-}
-
+.site-nav a:hover,
 .site-nav a[aria-current="page"] {
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-}
-
-.nav-toggle,
-.theme-toggle {
-  padding: var(--space-1) var(--space-2);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background-color: transparent;
-  color: var(--color-text);
-  font: inherit;
-  cursor: pointer;
-}
-
-.theme-toggle[aria-pressed="true"] {
-  border-color: var(--color-primary);
-  color: var(--color-primary);
+  color: var(--secondary);
 }
 
 .nav-toggle {
   display: none;
 }
 
-/* ---------- 5. Buttons and hero ---------- */
-.button {
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: var(--radius);
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-  font: inherit;
-  font-weight: 600;
-  text-decoration: none;
+.theme-toggle {
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 8px;
   cursor: pointer;
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
 }
 
-.button:hover {
-  background-color: var(--color-primary-dark);
-  color: var(--color-on-primary);
-  transform: translateY(-2px);
-}
-
-.hero {
-  padding-block: var(--space-5);
-  background: linear-gradient(135deg, var(--color-surface), var(--color-bg));
-  border-bottom: 1px solid var(--color-border);
-}
-
-.hero h1 {
-  max-width: 18ch;
-  font-size: clamp(2rem, 5vw, 3.25rem);
+.page-header {
+  padding: 90px 0 65px;
+  text-align: center;
+  background:
+    radial-gradient(circle at top right,
+    rgba(21, 158, 145, 0.12), transparent 40%);
 }
 
 .eyebrow {
-  margin-bottom: var(--space-1);
-  color: var(--color-primary);
-  font-size: 0.8rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: bold;
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+.page-header h1 {
+  font-size: clamp(35px, 6vw, 58px);
+  line-height: 1.2;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.page-header h1 span {
+  color: var(--secondary);
 }
 
 .lead {
-  max-width: 55ch;
-  margin-bottom: var(--space-3);
-  color: var(--color-muted);
-  font-size: 1.2rem;
+  max-width: 650px;
+  margin: auto auto 25px;
+  color: var(--muted);
+  font-size: 17px;
 }
 
-/* ---------- 6. Cards and grids ---------- */
-.team-grid,
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: var(--space-3);
-}
-
-.card {
-  padding: var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background-color: var(--color-surface);
-}
-
-.avatar {
-  display: grid;
-  place-items: center;
-  width: 64px;
-  height: 64px;
-  margin-bottom: var(--space-2);
-  border-radius: 50%;
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-  font-size: 1.25rem;
-  font-weight: 700;
-}
-
-.role {
-  color: var(--color-primary);
-  font-weight: 600;
-}
-
-.skill-list {
-  padding-left: 1.25rem;
-}
-
-.skill-list li {
-  margin-bottom: var(--space-1);
-}
-
-/* ---------- 7. Projects page ---------- */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-1);
-  margin-bottom: var(--space-2);
-}
-
-.filter-btn {
-  padding: 0.4rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 999px;
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  font: inherit;
-  cursor: pointer;
-}
-
-.filter-btn[aria-pressed="true"] {
-  border-color: var(--color-primary);
-  background-color: var(--color-primary);
-  color: var(--color-on-primary);
-}
-
-.project-count {
-  color: var(--color-muted);
-}
-
-.tag {
+.button {
   display: inline-block;
-  margin-bottom: var(--space-1);
-  color: var(--color-primary);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+  padding: 13px 24px;
+  background: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s, background 0.3s;
 }
 
-/* ---------- 8. Contact form ---------- */
-.contact-form {
-  max-width: 560px;
-  padding-bottom: var(--space-4);
+.button:hover {
+  background: #107d74;
+  transform: translateY(-3px);
 }
 
-.field {
-  margin-bottom: var(--space-3);
-}
-
-label {
-  display: block;
-  margin-bottom: 0.35rem;
-  font-weight: 600;
-}
-
-input,
-select,
-textarea {
-  width: 100%;
-  padding: 0.65rem 0.8rem;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  background-color: var(--color-surface);
-  color: var(--color-text);
-  font: inherit;
-}
-
-input:focus,
-select:focus,
-textarea:focus {
-  border-color: var(--color-primary);
-}
-
-input[aria-invalid="true"],
-textarea[aria-invalid="true"] {
-  border-color: var(--color-error);
-}
-
-.hint,
-.error {
-  margin: 0.35rem 0 0;
-  font-size: 0.9rem;
-}
-
-.hint {
-  color: var(--color-muted);
-}
-
-.error {
-  min-height: 1.4em;
-  color: var(--color-error);
-}
-
-.form-status {
-  margin-top: var(--space-2);
-  color: var(--color-success);
-  font-weight: 600;
-}
-
-/* ---------- 9. Footer ---------- */
-.site-footer {
-  margin-top: var(--space-4);
-  padding-block: var(--space-3);
-  border-top: 1px solid var(--color-border);
-  color: var(--color-muted);
+.team-section {
+  padding: 45px 0 80px;
   text-align: center;
 }
 
-/* ---------- 10. Small screens ---------- */
-@media (max-width: 700px) {
+.team-section h2,
+.contact-info h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.section-description {
+  color: var(--muted);
+  margin-bottom: 30px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+  max-width: 750px;
+  margin: auto;
+}
+
+.team-card {
+  padding: 35px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s;
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+}
+
+.avatar {
+  width: 75px;
+  height: 75px;
+  margin: auto auto 18px;
+  display: grid;
+  place-items: center;
+  background: var(--primary);
+  color: white;
+  border: 3px solid var(--accent);
+  border-radius: 50%;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.team-card h3 {
+  margin-bottom: 5px;
+}
+
+.team-card p {
+  color: var(--muted);
+}
+
+.team-label {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--secondary);
+  background: rgba(21, 158, 145, 0.12);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 45px;
+  padding: 55px 0 90px;
+  align-items: start;
+}
+
+.contact-info > p:not(.eyebrow) {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+
+.info-card {
+  display: flex;
+  gap: 15px;
+  padding: 17px;
+  margin-bottom: 15px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--surface);
+}
+
+.info-card > span {
+  font-size: 25px;
+}
+
+.info-card p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.contact-form {
+  background: var(--surface);
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.contact-form h2 {
+  margin-bottom: 25px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: var(--background);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 3px rgba(21, 158, 145, 0.12);
+}
+
+textarea {
+  resize: vertical;
+}
+
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 7px;
+}
+
+.error {
+  color: #dc3545;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.form-status {
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+.form-status.success {
+  color: #159e91;
+}
+
+.form-status.failure {
+  color: #dc3545;
+}
+
+.site-footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 40px 15px;
+}
+
+.site-footer h3 {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.site-footer p {
+  margin-top: 8px;
+  color: #d3deeb;
+}
+
+#back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 45px;
+  height: 45px;
+  border: none;
+  border-radius: 50%;
+  background: var(--secondary);
+  color: white;
+  font-size: 23px;
+  cursor: pointer;
+  display: none;
+  z-index: 50;
+}
+
+#back-to-top.show {
+  display: block;
+}
+
+.reveal {
+  animation: fadeUp 0.8s ease both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .header-inner {
+    flex-wrap: wrap;
+    padding: 15px 0;
+  }
+
   .nav-toggle {
-    display: inline-block;
+    display: block;
+    padding: 9px 14px;
+    border: none;
+    border-radius: 6px;
+    background: var(--secondary);
+    color: white;
+    cursor: pointer;
   }
 
   .site-nav {
     display: none;
-    order: 3;
     width: 100%;
   }
 
@@ -407,18 +418,29 @@ textarea[aria-invalid="true"] {
 
   .site-nav ul {
     flex-direction: column;
+    gap: 15px;
+    padding: 15px 0;
   }
 
-  .section {
-    padding-block: var(--space-3);
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-header {
+    padding: 65px 0 45px;
   }
 }
 
-/* ---------- 11. Respect reduced-motion preferences ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
   *::after {
-    transition: none !important;
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
   }
 }
