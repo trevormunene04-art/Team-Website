@@ -1,182 +1,233 @@
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Team Byte - The creative web development journey of Trevor Kaimuri and Collins Kipkoech."
-    />
-    <title>Home | Team Byte</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <script src="js/script.js" defer></script>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <body>
-    <a class="skip-link" href="#main">Skip to main content</a>
+  <meta
+    name="description"
+    content="Team Byte - The creative web development journey of Trevor Kaimuri and Collins Kipkoech."
+  />
 
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="logo" href="index.html">Team Byte</a>
+  <title>Home | Team Byte</title>
 
-        <button
-          class="nav-toggle"
-          type="button"
-          aria-expanded="false"
-          aria-controls="site-nav"
-        >
-          Menu
-        </button>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/script.js" defer></script>
+</head>
 
-        <nav id="site-nav" class="site-nav" aria-label="Main">
-          <ul>
-            <li><a href="index.html" aria-current="page">Home</a></li>
-            <li><a href="project.html">Projects</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </nav>
+<body>
 
-        <button class="theme-toggle" type="button" aria-pressed="false">
-          Dark mode
-        </button>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="logo" href="index.html">Team Byte</a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="site-nav"
+      >
+        Menu
+      </button>
+
+      <nav id="site-nav" class="site-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="project.html">Projects</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+
+      <button class="theme-toggle" type="button" aria-pressed="false">
+        Dark mode
+      </button>
+
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+      <div class="container">
+
+        <p class="eyebrow">CSC 216 · LAB 2 · TEAM BYTE</p>
+
+        <h1>
+          Two minds. One vision.
+          <br />
+          Endless possibilities.
+        </h1>
+
+        <p class="lead">
+          Welcome to Team Byte! We are Trevor Kaimuri and Collins
+          Kipkoech, two Computer Science students passionate about
+          technology, creativity and building meaningful digital
+          experiences. We turn ideas into code and challenges into
+          opportunities to learn.
+        </p>
+
+        <a class="button" href="project.html">
+          Explore our work →
+        </a>
+
       </div>
-    </header>
+    </section>
 
-    <main id="main">
 
-      <!-- HERO SECTION -->
-      <section class="hero">
-        <div class="container">
+    <!-- TEAM SECTION -->
+    <section
+      class="container section"
+      aria-labelledby="team-heading"
+    >
 
-          <p class="eyebrow">CSC 216 · LAB 2 · TEAM BYTE</p>
+      <h2 id="team-heading">The people behind the code.</h2>
 
-          <h1>
-            Two minds. One vision.
-            <br />
-            Endless possibilities.
-          </h1>
+      <p class="lead">
+        Every great project starts with a team willing to think,
+        experiment and create.
+      </p>
 
-          <p class="lead">
-            Welcome to Team Byte! We are Trevor Kaimuri and Collins
-            Kipkoech, two Computer Science students passionate about
-            technology, creativity and building meaningful digital
-            experiences. We turn ideas into code and challenges into
-            opportunities to learn.
+      <div class="team-grid">
+
+        <!-- TREVOR KAIMURI -->
+        <article class="card" style="text-align: center;">
+
+          <img
+            src="trevor.jpeg"
+            alt="Trevor Kaimuri"
+            style="
+              width: 180px;
+              height: 180px;
+              object-fit: cover;
+              object-position: center top;
+              border-radius: 50%;
+              display: block;
+              margin: 0 auto 20px;
+              border: 4px solid #2563eb;
+            "
+          />
+
+          <h3>Trevor Kaimuri</h3>
+
+          <p class="role">Design & Development</p>
+
+          <p>
+            Focused on creating clean layouts, thoughtful designs
+            and user-friendly experiences. Believes that great
+            websites should look good and work beautifully.
           </p>
 
-          <a class="button" href="project.html">
-            Explore our work →
-          </a>
+        </article>
 
-        </div>
-      </section>
 
-      <!-- TEAM SECTION -->
-      <section
-        class="container section"
-        aria-labelledby="team-heading"
-      >
-        <h2 id="team-heading">The people behind the code.</h2>
+        <!-- COLLINS KIPKOECH -->
+        <article class="card" style="text-align: center;">
 
-        <p class="lead">
-          Every great project starts with a team willing to think,
-          experiment and create.
-        </p>
+          <img
+            src="collins.jpeg"
+            alt="Collins Kipkoech"
+            style="
+              width: 180px;
+              height: 180px;
+              object-fit: cover;
+              object-position: center top;
+              border-radius: 50%;
+              display: block;
+              margin: 0 auto 20px;
+              border: 4px solid #2563eb;
+            "
+          />
 
-        <div class="team-grid">
+          <h3>Collins Kipkoech</h3>
 
-          <article class="card">
-            <div class="avatar" aria-hidden="true">TK</div>
+          <p class="role">Programming & Interaction</p>
 
-            <h3>Trevor Kaimuri</h3>
+          <p>
+            Interested in programming, problem-solving and bringing
+            websites to life through interactive and functional
+            digital experiences.
+          </p>
 
-            <p class="role">Design & Development</p>
+        </article>
 
-            <p>
-              Focused on creating clean layouts, thoughtful designs
-              and user-friendly experiences. Believes that great
-              websites should look good and work beautifully.
-            </p>
-          </article>
-
-          <article class="card">
-            <div class="avatar" aria-hidden="true">CK</div>
-
-            <h3>Collins Kipkoech</h3>
-
-            <p class="role">Programming & Interaction</p>
-
-            <p>
-              Interested in programming, problem-solving and bringing
-              websites to life through interactive and functional
-              digital experiences.
-            </p>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- SKILLS SECTION -->
-      <section
-        class="container section"
-        aria-labelledby="learning-heading"
-      >
-        <h2 id="learning-heading">What drives our work.</h2>
-
-        <p class="lead">
-          We are constantly exploring the technologies that power
-          the modern web.
-        </p>
-
-        <ul class="skill-list">
-
-          <li>
-            <strong>HTML</strong>
-            – Building meaningful structures and foundations
-            for the web.
-          </li>
-
-          <li>
-            <strong>CSS</strong>
-            – Creating beautiful layouts, colours and responsive designs.
-          </li>
-
-          <li>
-            <strong>JavaScript</strong>
-            – Adding functionality, interaction and life to our projects.
-          </li>
-
-        </ul>
-      </section>
-
-      <!-- CLOSING SECTION -->
-      <section class="container section">
-        <h2>Our journey is just beginning.</h2>
-
-        <p class="lead">
-          We believe in learning by doing, improving through experience
-          and creating something better with every line of code.
-          This is Team Byte, and this is only the beginning.
-        </p>
-
-        <a class="button" href="contact.html">
-          Get in touch →
-        </a>
-      </section>
-
-    </main>
-
-    <footer class="site-footer">
-      <div class="container">
-        <p>
-          © <span id="year">2026</span> Team Byte.
-          Designed and developed by Trevor Kaimuri & Collins Kipkoech.
-        </p>
       </div>
-    </footer>
 
-  </body>
+    </section>
+
+
+    <!-- SKILLS SECTION -->
+    <section
+      class="container section"
+      aria-labelledby="learning-heading"
+    >
+
+      <h2 id="learning-heading">What drives our work.</h2>
+
+      <p class="lead">
+        We are constantly exploring the technologies that power
+        the modern web.
+      </p>
+
+      <ul class="skill-list">
+
+        <li>
+          <strong>HTML</strong>
+          – Building meaningful structures and foundations
+          for the web.
+        </li>
+
+        <li>
+          <strong>CSS</strong>
+          – Creating beautiful layouts, colours and responsive designs.
+        </li>
+
+        <li>
+          <strong>JavaScript</strong>
+          – Adding functionality, interaction and life to our projects.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <!-- CLOSING SECTION -->
+    <section class="container section">
+
+      <h2>Our journey is just beginning.</h2>
+
+      <p class="lead">
+        We believe in learning by doing, improving through experience
+        and creating something better with every line of code.
+        This is Team Byte, and this is only the beginning.
+      </p>
+
+      <a class="button" href="contact.html">
+        Get in touch →
+      </a>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+
+      <p>
+        © <span id="year">2026</span> Team Byte.
+        Designed and developed by Trevor Kaimuri & Collins Kipkoech.
+      </p>
+
+    </div>
+  </footer>
+
+</body>
 </html>
-
-
